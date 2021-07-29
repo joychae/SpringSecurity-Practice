@@ -1,6 +1,8 @@
 package com.prac.springsecurity.controller;
 
 import com.prac.springsecurity.domain.AuthenticationRequest;
+import com.prac.springsecurity.service.JwtService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,8 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
+@RequiredArgsConstructor
 @RestController
 public class LoginController {
+
+    private final JwtService jwtService;
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody AuthenticationRequest authenticationRequest) {
@@ -25,7 +30,7 @@ public class LoginController {
         List<String> roles = new ArrayList<String>();
         roles.add("ROLE_MEMBER");
 
-        String token = username + "_" + roles;
+        String token = jwtService.issue(username, password, roles);
 
         log.info("token: " + token);
 
