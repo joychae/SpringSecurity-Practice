@@ -2,7 +2,7 @@ package com.prac.springsecurity.config;
 
 public class JwtConfig {
 
-    public static final String JWT_SECRET = "secretkey";
+    public static final String JWT_SECRET = "hsda823rhufaoienwuh328URIWEFHWEOFU9WEREJWIFJ993uj823rwr982323jrou23rnjgurehg0u9u423r90uuw";
 
     public static final String TOKEN_HEADER = "Authorization";
     public static final String TOKEN_PREFIX = "Bearer";
