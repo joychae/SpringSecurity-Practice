@@ -25,7 +25,7 @@ public class JwtService {
                 .setAudience(JwtConfig.TOKEN_AUDIENCE)
                 .setSubject(username)
                 .setExpiration(new Date(System.currentTimeMillis() + 864000000))
-                .claim("rol", roles)
+                .claim("role", roles)
                 .compact();
 
         return token;
